@@ -3,11 +3,12 @@ var test = require('tape')
 
 test('nee', function (t) {
   var times = 0
-    , handler = function (a) { t.equal(a, 1, 'basic emit ' + ++times)}
+    , handler = function (a) { t.equal(a, 1, 'basic emit ' + ++times); return !0}
     , ee = nee()
 
   ee.on('foo', handler)
-  ee.emit('foo', [1])
+  var results = ee.emit('foo', [1])
+  t.equal(results[0], true, 'results returned from emit')
 
   ee.on('foo', function (a, b) { t.equal(b, 2, 'Chain emit')})
     .emit('foo', [1, 2])

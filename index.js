@@ -1,3 +1,6 @@
+var slice = require('lodash._slice')
+  , pc = require('photocopy')
+
 module.exports = makeEE
 
 function makeEE () {
@@ -16,19 +19,13 @@ function makeEE () {
 
   function emit (type, args) {
     var self = this
-    listeners(type).forEach(function (handler) {
-      handler.apply(self, args)
+    return pc(listeners(type), function (handler) {
+      return handler.apply(self, args)
     })
-    return self
   }
 
   function listeners (type) {
-    var listenersArr = events[type]
-    if (listenersArr && Array.isArray(listenersArr)) {
-      return listenersArr.slice(0)
-    } else {
-      return []
-    }
+    return slice(events[type])
   }
 }
 
