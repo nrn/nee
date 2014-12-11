@@ -1,6 +1,6 @@
 {
   "name": "nee",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Novel Event Emitter.",
   "main": "index.js",
   "scripts": {
@@ -24,8 +24,5 @@
   "devDependencies": {
     "tape": "^2.13.4"
   },
-  "dependencies": {
-    "lodash._slice": "2.4.1",
-    "photocopy": "0.0.0"
-  }
+  "dependencies": { }
 }
