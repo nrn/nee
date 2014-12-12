@@ -75,14 +75,14 @@ test('wildcard', function (t) {
 
   function testWild (ee, name) {
     var total = 0
-      , expected = 3
+      , expected = 4
+      , expectedPaths = [ 'foo', 'foo', 'bar', '*' ]
 
-    t.test(name, function (t) {
-
-      t.plan(2)
+    t.test('wild ' + name, function (t) {
 
       // glob
-      ee.on('*', function (a, b) {
+      ee.on('*', function (path, a) {
+        t.equal(path, expectedPaths[total], 'Fired with path ' + path)
         total += 1
         if (total >= expected) t.equal(total, expected, 'Correct number of "*" calls')
       })
@@ -96,6 +96,9 @@ test('wildcard', function (t) {
 
       ee.emit('foo', [2])
         .emit('bar', [1, 2])
+        .emit('*', [1, 2])
+
+      t.end()
     })
   }
 

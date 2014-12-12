@@ -19,20 +19,17 @@ EE.prototype.listeners = function (type) {
 EE.prototype.emit = function (type, args) {
   var i = 0
     , byType = this.listeners(type)
-    , star
-    , withType
-
-  for (i = 0; i < byType.length; i++) {
-    byType[i].apply(this, args)
-  }
-
+    , star = this.listeners('*')
+    , withType = [type].concat(args)
 
   if (type !== '*') {
-    star = this.listeners('*')
-    withType = [type].concat(args)
-    for (i = 0; i < star.length; i++) {
-      star[i].apply(this, withType)
+    for (i = 0; i < byType.length; i++) {
+      byType[i].apply(this, args)
     }
+  }
+
+  for (i = 0; i < star.length; i++) {
+    star[i].apply(this, withType)
   }
 
   this.par.emit(type, args)
