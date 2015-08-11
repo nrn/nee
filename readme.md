@@ -6,6 +6,8 @@ it is compact, and it can run in any JavaScript environment.
 
 `npm install nee`
 
+[![browser support](https://ci.testling.com/nrn/nee.png)](https://ci.testling.com/nrn/nee)
+
 ## API
 
 ### nee = require('nee')
