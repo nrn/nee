@@ -47,6 +47,23 @@ test('off', function (t) {
 
   testOff(ee1, 'nee')
 
+  var ee2 = nee()
+
+  ee2.on('remove-self', function removeSelf () {
+    ee2.off('remove-self', removeSelf)
+  })
+
+  var skipped = true
+
+  ee2.on('remove-self', function dontSkip () {
+    skipped = false
+  })
+
+  ee2.emit('remove-self')
+
+  t.equal(skipped, false, "Don't skip handler after remove")
+
+
   t.end()
 
   function testOff (ee, name) {

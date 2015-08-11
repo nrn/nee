@@ -38,7 +38,7 @@ EE.prototype.emit = function (type, args) {
 }
 
 EE.prototype.off = function (type, handler) {
-  var handlers = this.listeners(type)
+  var handlers = this.listeners(type).slice()
     , idx = handlers.length
 
   while (idx--) {
@@ -46,7 +46,9 @@ EE.prototype.off = function (type, handler) {
   }
 
   // remove all if no handler specified
-  if (!handler) handlers.splice(0, handlers.length)
+  if (!handler) handlers = []
+
+  this._events[type] = handlers
 
   return this
 }
