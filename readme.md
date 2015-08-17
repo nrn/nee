@@ -6,8 +6,6 @@ it is compact, and it can run in any JavaScript environment.
 
 `npm install nee`
 
-[![browser support](https://ci.testling.com/nrn/nee.png)](https://ci.testling.com/nrn/nee)
-
 ## API
 
 ### nee = require('nee')
@@ -46,5 +44,5 @@ all other arguments following.
 
 ##License: ISC
 
-Copyright 2014 Nick Niemeir <nick.niemeir@gmail.com>
+Copyright 2015 Nick Niemeir <nick.niemeir@gmail.com>
 

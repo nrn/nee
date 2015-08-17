@@ -1,6 +1,6 @@
 {
   "name": "nee",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Novel Event Emitter.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "github.com/nrn/nee"
+    "url": "https://github.com/nrn/nee"
   },
   "keywords": [
     "novel",
@@ -24,18 +24,5 @@
   "devDependencies": {
     "tape": "^2.13.4"
   },
-  "dependencies": { },
-  "testling": {
-    "files": "test.js",
-    "browsers": [
-      "ie/6..latest",
-      "chrome/22..latest",
-      "firefox/3.5..latest",
-      "safari/5..latest",
-      "opera/12.0..latest",
-      "iphone/5..latest",
-      "ipad/5..latest",
-      "android-browser/2.3..latest"
-    ]
-  }
+  "dependencies": { }
 }
